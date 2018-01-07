@@ -1,0 +1,26 @@
+class Class
+  def attr_accessor_with_history(attr_name)
+    attr_name.to_s unless attr_name.class != String
+    attr_reader attr_name
+    class_eval %Q{
+      def #{attr_name}_history
+        @#{attr_name}_history || [nil] # give default value if not assigned
+      end
+
+      def #{attr_name}=(new_value)
+        @#{attr_name}_history ||= [nil] # shortcut, compare to your line
+        @#{attr_name}_history << @#{attr_name} = new_value
+      end
+    }
+  end
+end
+
+class Foo
+  attr_accessor_with_history :bar
+end
+
+test = Foo.new
+test.bar = "New"
+test.bar = 3
+test.bar = [0,1]
+puts test.bar_history

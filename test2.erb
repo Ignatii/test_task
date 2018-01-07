@@ -1,0 +1,17 @@
+puts "Text: "
+text = gets.chomp
+words = text.split(" ")
+
+def count_words(words)
+
+  @frequency = Hash.new(0)
+
+  words.each{
+  |item|
+  @frequency[item.downcase] += 1
+  }
+
+  return @frequency
+end
+
+puts count_words(words)

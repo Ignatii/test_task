@@ -1,0 +1,46 @@
+class  WrongNumberOfPlayersError < StandardError
+end
+
+class  NoSuchStrategyError < StandardError
+end
+
+
+def rps_game_winner(arr)
+    moves = ["S", "R", "C"]
+    if arr.count > 2
+      raise WrongNumberOfPlayersError
+    else
+      if arr[0][1] == "P"
+          if arr[1][1] == "R"
+              return true
+          elsif arr[1][1] == "P"
+          return true
+          elsif arr[1][1] == "S"
+              return false
+          end
+      elsif arr[0][1] == "R"
+          if arr[1][1] == "S"
+              return true
+          elsif arr[1][1] == "R"
+              return true
+          elsif arr[1][1] == "P"
+              return false
+          end
+      elsif arr[0][1] == "S"
+          if arr[1][1] == "P"
+              return true
+          elsif arr[1][1] == "S"
+              return true
+          elsif arr[1][1] == "R"
+              return false
+          end
+      elseif moves.include?(arr[0][1]) == false && moves.include?(arr[1][1]) == false
+        raise NoSuchStrategyError
+      else
+        raise NoSuchStrategyError
+      end
+    end
+end
+
+array = [["Armando", "P"], ["Dave", "F"]]
+puts rps_game_winner(array)

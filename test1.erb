@@ -1,6 +1,7 @@
-def palindrome(string)
-  string.gsub!(/[\,\.\?\!\:\;\-\s']/, "").downcase!
+def palindrome?(string)
+  string.gsub!(/[\,\.\?\!\:\;\-\s']/, "")
+  string.downcase!
   string == string.reverse
 end
 
-puts palindrome("A man, a plan, a canal -- Panama")
+puts palindrome?("A man, a plan, a canal -- Panama")

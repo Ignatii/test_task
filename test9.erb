@@ -1,6 +1,7 @@
 class String
 
   def palindrome?
+    return if self.length == 0
     self.gsub!(/[\,\.\?\!\:\;\-\s']/, "")
     self.downcase!
     self == self.reverse

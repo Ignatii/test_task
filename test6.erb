@@ -14,7 +14,7 @@ class Dessert
 
   def delicious?
 
-    @name == "dessert" ? true: false
+    true
 
   end
 
@@ -30,7 +30,11 @@ class JellyBean < Dessert
 
   def delicious?
 
-    @flavor == "black licorice"
+    if @flavor == "black licorice" 
+	    return false
+    else
+	    super
+    end
 
   end
 end

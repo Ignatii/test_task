@@ -1,4 +1,5 @@
 def palindrome?(string)
+  return if string.length == 0
   string.gsub!(/[\,\.\?\!\:\;\-\s']/, "")
   string.downcase!
   string == string.reverse

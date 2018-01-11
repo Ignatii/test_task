@@ -1,7 +1,8 @@
 class String
 
   def palindrome?
-    self.gsub!(/[\,\.\?\!\:\;\-\s']/, "").downcase!
+    self.gsub!(/[\,\.\?\!\:\;\-\s']/, "")
+    self.downcase!
     self == self.reverse
   end
 

@@ -1,0 +1,12 @@
+def count_words(string)
+  words = string.split(" ")
+  @frequency = Hash.new(0)
+
+  words.each{
+  |item|
+  @frequency[item.downcase] += 1
+  }
+  @frequency
+end
+
+puts count_words("A man, a plan, a canal -- Panama")

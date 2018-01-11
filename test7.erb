@@ -1,0 +1,21 @@
+class Numeric
+  CURRENCIES = {'ruble' => 1 , 'dollar'=> 32.26,'euro' => 43.61}
+
+  CURRENCIES.keys.each do |currency|
+    define_method(currency.to_s) { self * CURRENCIES[currency]}
+ 
+    define_method("#{currency}s") { self * CURRENCIES[currency]}
+  end
+
+  def in(withans)
+    value_without_s = withans.to_s.gsub(/s$/,'')
+    if CURRENCIES.has_key?(value_without_s)
+      self * (1/CURRENCIES[value_without_s])
+    else
+      self
+    end
+  end
+end
+
+puts 1.dollar.in(:rubles)
+puts 1.rubles.in(:euro)

@@ -1,4 +1,5 @@
 def count_words(string)
+  string.gsub!(/[\,\.\?\!\:\;\-']/, "")
   words = string.split(" ")
   @frequency = Hash.new(0)
 

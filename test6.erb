@@ -8,7 +8,7 @@ class Dessert
 
   def healty?
 
-    @calories < 200 ? true: false
+    @calories < 200
 
   end
 
@@ -30,16 +30,12 @@ class JellyBean < Dessert
 
   def delicious?
 
-    if @flavor == "black licorice" 
-	    return false
-    else
-	    super
-    end
+    @flavor == "black licorice" ? false: true
 
   end
 end
 
-test = JellyBean.new("black licore","dessert",400)
+test = JellyBean.new("black licoric","dessert",400)
 
 puts test.healty?
 puts test.delicious?

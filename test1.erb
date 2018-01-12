@@ -1,7 +1,7 @@
 def palindrome?(string)
   return nil if string.nil?
-  return false if string.length == 0
   string.gsub!(/[\,\.\?\!\:\;\-\s']/, "")
+  return false if string.length == 0
   string.downcase!
   string == string.reverse
 end

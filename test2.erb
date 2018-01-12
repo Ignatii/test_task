@@ -1,5 +1,7 @@
 def count_words(string)
-  string.gsub!(/[\,\.\?\!\:\;\-']/, "")
+  return "String is nil" if string.nil?
+  string.gsub!(/[\,\.\?\!\:\;\-\/\\\[\]\{\}\|\*\$\%\^\#\@']/, "")
+  return "String consist of only symbols or empty!" if string.length == 0
   words = string.split(" ")
   @frequency = Hash.new(0)
 
